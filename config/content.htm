@@ -20,8 +20,44 @@
 <p>3.分組團隊 (Teams) 建立後, 請參考<a href="https://mde.tw/cd2025/content/list.html">說明</a>後, 將各班各學員與各團隊的倉儲與網站連結, 分別放入標題為 list (使用第一階標題) 的網頁中.</p>
 <p><a href="https://www.onshape.com/en/education/sign-up">註冊 Onshape 教育帳號</a>)</p>
 <p>4.進行python改版</p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="351" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/ThP6HovOjWY" title="python 更新" width="653"></iframe></p>
-<p></p><h1>Homework</h1>
+<p></p>
+<h2>w3</h2>
+<p>以下是使用chatgpt來顯示我們這組的倉儲以及靜態網頁的程式碼</p>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">from browser import html, document
+
+# 學員資料 URL
+url = "https://mde.tw/list/2a.txt"
+# 讀取網站資料
+all_stud = open(url).readlines()[1:]  # 忽略標題列
+
+# 指定要顯示的學號
+selected_ids = {"412223118", "41223118", "41223122", "41223131", "41223134", "41223136", "41223158"}
+
+# 取得網頁中的 brython_div1 位置
+brython_div1 = document["brython_div1"]
+
+# 加入 2a-ag4 分組倉儲與靜態網頁（優先顯示）
+brython_div1 &lt;= "(Group-4) " + html.A("2a-ag4", href="https://mdecd2025.github.io/2a-ag4/content/index.html")
+brython_div1 &lt;= " | " + html.A("repo", href="https://github.com/mdecd2025/2a-ag4")
+brython_div1 &lt;= html.BR()
+brython_div1 &lt;= html.BR()
+
+# 確保個別學員標題顯示
+count = 0
+for i in all_stud:
+    stud = i.split("\t")
+    stud_num = stud[0]
+    github = stud[1]
+    
+    if stud_num in selected_ids:
+        count += 1
+        brython_div1 &lt;= str(count) + ". " + html.A(str(stud_num), href="https://mdecd2025.github.io/hw-" + str(github))
+        brython_div1 &lt;= " | " + html.A("repo", href="https://github.com/mdecd2025/hw-" + str(github))
+        brython_div1 &lt;= html.BR()
+</pre>
+<p></p>
+<p>以下使用Brython來顯示出我們這組的倉儲以及網頁連結</p>
+<p><span>(Group-4) </span><a href="https://mdecd2025.github.io/2a-ag4/content/index.html">2a-ag4</a><span> | </span><a href="https://github.com/mdecd2025/2a-ag4">repo</a><br/><span>1. </span><a href="https://mdecd2025.github.io/hw-zhe41223118">41223118</a><span> | </span><a href="https://github.com/mdecd2025/hw-zhe41223118">repo</a><br/><span>2. </span><a href="https://mdecd2025.github.io/hw-Spirit0224">41223122</a><span> | </span><a href="https://github.com/mdecd2025/hw-Spirit0224">repo</a><br/><span>3. </span><a href="https://mdecd2025.github.io/hw-yuhao-08">41223131</a><span> | </span><a href="https://github.com/mdecd2025/hw-yuhao-08">repo</a><br/><span>4. </span><a href="https://mdecd2025.github.io/hw-41223134">41223134</a><span> | </span><a href="https://github.com/mdecd2025/hw-41223134">repo</a><br/><span>5. </span><a href="https://mdecd2025.github.io/hw-41223136">41223136</a><span> | </span><a href="https://github.com/mdecd2025/hw-41223136">repo</a><br/><span>6. </span><a href="https://mdecd2025.github.io/hw-41223158">41223158</a><span> | </span><a href="https://github.com/mdecd2025/hw-41223158">repo</a></p><h1>Homework</h1>
 <p>作業 (30%)</p>
 <p>HW1 (5%): <span style="background-color: #ffff00;">建立由 Box 組成的平面四連桿機構 Webots 模擬場景</span></p>
 <p style="padding-left: 30px;">part1:</p>

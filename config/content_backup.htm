@@ -15,11 +15,46 @@
 <p></p>
 <h1>week</h1>
 <h2>w1</h2>
-<p>1.分組6人一組進行協同倉儲管理</p>
-<p>2.分組團隊 (Teams) 建立後, 請參考<a href="https://mde.tw/cd2025/content/list.html">說明</a>後, 將各班各學員與各團隊的倉儲與網站連結, 分別放入標題為 list (使用第一階標題) 的網頁中.</p>
+<p>1.建立個人作業網站與倉儲</p>
+<p>2.分組6人一組進行協同倉儲管理</p>
+<p>3.分組團隊 (Teams) 建立後, 請參考<a href="https://mde.tw/cd2025/content/list.html">說明</a>後, 將各班各學員與各團隊的倉儲與網站連結, 分別放入標題為 list (使用第一階標題) 的網頁中.</p>
 <p><a href="https://www.onshape.com/en/education/sign-up">註冊 Onshape 教育帳號</a>)</p>
-<p>3.進行python改版</p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="351" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/ThP6HovOjWY" title="python 更新" width="653"></iframe></p>
+<p>4.進行python改版</p>
+<p></p>
+<h2>w3</h2>
+<p>以下是使用chatgpt來顯示我們這組的倉儲以及靜態網頁的程式碼</p>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">from browser import html, document
+
+# 學員資料 URL
+url = "https://mde.tw/list/2a.txt"
+# 讀取網站資料
+all_stud = open(url).readlines()[1:]  # 忽略標題列
+
+# 指定要顯示的學號
+selected_ids = {"412223118", "41223118", "41223122", "41223131", "41223134", "41223136", "41223158"}
+
+# 取得網頁中的 brython_div1 位置
+brython_div1 = document["brython_div1"]
+
+# 加入 2a-ag4 分組倉儲與靜態網頁（優先顯示）
+brython_div1 &lt;= "(Group-4) " + html.A("2a-ag4", href="https://mdecd2025.github.io/2a-ag4/content/index.html")
+brython_div1 &lt;= " | " + html.A("repo", href="https://github.com/mdecd2025/2a-ag4")
+brython_div1 &lt;= html.BR()
+brython_div1 &lt;= html.BR()
+
+# 確保個別學員標題顯示
+count = 0
+for i in all_stud:
+    stud = i.split("\t")
+    stud_num = stud[0]
+    github = stud[1]
+    
+    if stud_num in selected_ids:
+        count += 1
+        brython_div1 &lt;= str(count) + ". " + html.A(str(stud_num), href="https://mdecd2025.github.io/hw-" + str(github))
+        brython_div1 &lt;= " | " + html.A("repo", href="https://github.com/mdecd2025/hw-" + str(github))
+        brython_div1 &lt;= html.BR()
+</pre>
 <p></p><h1>Homework</h1>
 <p>作業 (30%)</p>
 <p>HW1 (5%): <span style="background-color: #ffff00;">建立由 Box 組成的平面四連桿機構 Webots 模擬場景</span></p>
