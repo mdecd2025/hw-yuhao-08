@@ -144,6 +144,7 @@ img.add_border {
         </header>
     <div id="tipue_search_content">w3 << <a href='w3.html'>Previous</a> <a href='Homework.html'>Next</a> >> Homework<br /><h1>尚未分組人員</h1>
 <p>這是利用ChatGPT做出的尚未分組的名單，但目前沒有去尋找加入錯的班級的程式碼</p>
+<p>更新前:(有顯示出已加入學名單的人員)</p>
 <pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">from browser import html, document
 
 # 學員資料 URL
@@ -194,7 +195,67 @@ for stud_num in sorted(unassigned_students):
 <li>41223119</li>
 <li>41223124</li>
 <li>41223148</li>
-</ol><br />w3 << <a href='w3.html'>Previous</a> <a href='Homework.html'>Next</a> >> Homework</div>
+</ol>
+<p>更新如下:(已正確加入尚未分組的人員)</p>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">import urllib.request
+
+# 設定 URL
+url = "https://mde.tw/list/2a.txt"
+
+# 讀取網站內容
+response = urllib.request.urlopen(url)
+data = response.read()  # 讀取原始資料
+
+# 檢查是否為 bytes，若是則解碼
+if isinstance(data, bytes):
+    data = data.decode('utf-8')
+
+# 分割行
+data_lines = data.splitlines()
+
+# 確保資料存在
+if len(data_lines) &gt; 1:
+    all_stud = data_lines[1:]  # 跳過標題列
+    print("總共有 " + str(len(all_stud)) + " 名學員")
+else:
+    all_stud = []
+    print("學員名單讀取失敗")
+
+# 已分組學員帳號
+grouped_accounts = {
+    '41223154', '41271125', '41271158', '41271146', '41271131', 'CYG41223103', '41223102', 
+    '41023128', '41023137', '41223137', '41223157', '41223156', 'otakuyoyo', '41223141', 
+    '41223113', 'kim41223114', 'joeisme1208', '41223116', '41223144', '41223140', '41223143', 
+    '41223138', '41223134', '41223136', 'zhe41223118', 'Spirit0224', 'yuhao-08', '41223158', 
+    'Ren911308', '41223150', 'Manto8', 'CYA41223106', 'yan21ed', 'Lin41223107', '41223133', 
+    'hong41223129', '41223110', '41223147', 'Linjiahong41223125', 'CHN41223132', 
+    'Yu-Fang-Hong', '41023111', 'yckaooooo', 'kolas911205', '41023105', '40932134', '41223104', 
+    'yan41223101', '41223105', '41223153', '41223120', '41223152', 'G8People', 
+    'WSE41223112', '41223146', '41223119'
+}
+
+# 未分組學員清單
+ungrouped_accounts = []
+
+for student in all_stud:
+    parts = student.split()  # 用空格分割學號和帳號
+    if len(parts) == 1:
+        student_id = parts[0]
+        account = student_id  # 如果沒有帳號，將學號當作帳號
+    elif len(parts) == 2:
+        student_id, account = parts
+    
+    account = account.strip()
+    
+    # 如果帳號不在已分組帳號清單中，則加入未分組學員清單
+    if account not in grouped_accounts:
+        ungrouped_accounts.append(student_id)
+
+# 顯示未分組學員的學號，格式化輸出
+print("未納組學員學號:")
+print("\n".join(ungrouped_accounts))
+</pre>
+<p>總共有 60 名學員<br/>未納組學員學號:<br/>41023220<br/>41223111<br/>41223124<br/>41223148</p><br />w3 << <a href='w3.html'>Previous</a> <a href='Homework.html'>Next</a> >> Homework</div>
         
     <!-- footer -->
       <div class="container">
