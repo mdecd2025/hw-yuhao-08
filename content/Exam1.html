@@ -145,7 +145,83 @@ img.add_border {
     <div id="tipue_search_content">Exam << <a href='Exam.html'>Previous</a> <a href='Exam2.html'>Next</a> >> Exam2<br /><h1>Exam1</h1>
 <p>Exam1 (10%): 建立 Webots 基本物件模擬場景</p>
 <p>操作影片標題: 國立虎尾科技大學 - 機械設計工程系 - cd2025 Exam1 - 學員學號</p>
-<br />Exam << <a href='Exam.html'>Previous</a> <a href='Exam2.html'>Next</a> >> Exam2</div>
+<p>檔案:</p>
+<p>1.solvespaces草圖:<a href="./../downloads/solvespaces草圖.7z">41223131-solvespaces草圖.7z</a></p>
+<p>2.wbt檔案:<a href="./../downloads/41223131-my_project - Quiz1.7z">41223131-webots - Quiz1.7z</a></p>
+<p><span style="background-color: #ffff00;">操作方法如下:</span></p>
+<p>1.先建立一個Robot，在裡面新增:基座(base)，尺寸1m、solid</p>
+<p>2.建立一個節點<span>(</span><span>joint1)</span>，把節點尺寸設置在-0.5，建立一個endPoint裡面的solid取名link1</p>
+<p>3.黑色與紅色角度我學號31度轉換勁度為-1.5163，X軸建立在-0.5</p>
+<p>4.在children下建立一個紅色桿子 長度為:0.4m</p>
+<p>5.新增節點(<span>joint2)</span>，Z軸往上1，點位在0.4m </p>
+<p>6.建立solid，角度為39.91，轉換勁度是5.38971，在children下建立兩個pose 長0.6m、短的0.3m綠色的桿子</p>
+<p>7.新增節點(joint3) z軸往下1，點位在0.6m</p>
+<p>8.<span>建立solid 角度為130.11<span> </span>轉換勁度是1.6189，<span>在children下建立pose，藍色長度0.9m</span></span></p>
+<p><span><span>9.在建立節點4，z軸0.1，點位0.9m</span></span></p>
+<p><span><span>10.記得作動的物理量需打開</span></span></p>
+<p><span><span>11.導入程式如下，即可轉動</span></span></p>
+<div>
+<div class="syntaxhighlighter csharp" id="highlighter_379034">
+<table border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2">1</div>
+<div class="line number2 index1 alt1">2</div>
+<div class="line number3 index2 alt2">3</div>
+<div class="line number4 index3 alt1">4</div>
+<div class="line number5 index4 alt2">5</div>
+<div class="line number6 index5 alt1">6</div>
+<div class="line number7 index6 alt2">7</div>
+<div class="line number8 index7 alt1">8</div>
+<div class="line number9 index8 alt2">9</div>
+<div class="line number10 index9 alt1">10</div>
+<div class="line number11 index10 alt2">11</div>
+<div class="line number12 index11 alt1">12</div>
+<div class="line number13 index12 alt2">13</div>
+<div class="line number14 index13 alt1">14</div>
+<div class="line number15 index14 alt2">15</div>
+<div class="line number16 index15 alt1">16</div>
+<div class="line number17 index16 alt2">17</div>
+<div class="line number18 index17 alt1">18</div>
+<div class="line number19 index18 alt2">19</div>
+<div class="line number20 index19 alt1">20</div>
+<div class="line number21 index20 alt2">21</div>
+<div class="line number22 index21 alt1">22</div>
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="csharp plain">from controller import Robot</code></div>
+<div class="line number2 index1 alt1"> </div>
+<div class="line number3 index2 alt2"><code class="csharp plain">def run_robot():</code></div>
+<div class="line number4 index3 alt1"><code class="csharp spaces">    </code><code class="csharp preprocessor"># Create the Robot instance</code></div>
+<div class="line number5 index4 alt2"><code class="csharp spaces">    </code><code class="csharp plain">robot = Robot()</code></div>
+<div class="line number6 index5 alt1"> </div>
+<div class="line number7 index6 alt2"><code class="csharp spaces">    </code><code class="csharp preprocessor"># Get simulation time step</code></div>
+<div class="line number8 index7 alt1"><code class="csharp spaces">    </code><code class="csharp plain">timestep = </code><code class="csharp keyword">int</code><code class="csharp plain">(robot.getBasicTimeStep())</code></div>
+<div class="line number9 index8 alt2"> </div>
+<div class="line number10 index9 alt1"><code class="csharp spaces">    </code><code class="csharp preprocessor"># Get motor device</code></div>
+<div class="line number11 index10 alt2"><code class="csharp spaces">    </code><code class="csharp plain">motor = robot.getDevice(</code><code class="csharp string">'motor'</code><code class="csharp plain">)</code></div>
+<div class="line number12 index11 alt1"> </div>
+<div class="line number13 index12 alt2"><code class="csharp spaces">    </code><code class="csharp preprocessor"># Set motor for continuous rotation</code></div>
+<div class="line number14 index13 alt1"><code class="csharp spaces">    </code><code class="csharp plain">motor.setPosition(</code><code class="csharp keyword">float</code><code class="csharp plain">(</code><code class="csharp string">'inf'</code><code class="csharp plain">))</code></div>
+<div class="line number15 index14 alt2"><code class="csharp spaces">    </code><code class="csharp plain">motor.setVelocity(1.0)</code></div>
+<div class="line number16 index15 alt1"> </div>
+<div class="line number17 index16 alt2"><code class="csharp spaces">    </code><code class="csharp preprocessor"># Main control loop</code></div>
+<div class="line number18 index17 alt1"><code class="csharp spaces">    </code><code class="csharp keyword">while</code> <code class="csharp plain">robot.step(timestep) != -1:</code></div>
+<div class="line number19 index18 alt2"><code class="csharp spaces">        </code><code class="csharp plain">pass</code></div>
+<div class="line number20 index19 alt1"> </div>
+<div class="line number21 index20 alt2"><code class="csharp keyword">if</code> <code class="csharp plain">__name__ == </code><code class="csharp string">"__main__"</code><code class="csharp plain">:</code></div>
+<div class="line number22 index21 alt1"><code class="csharp spaces">    </code><code class="csharp plain">run_robot()</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p><span style="background-color: #ffff00;">完成影片檔案如下:</span></p>
+</div>
+</div>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/TvuXzDF6okI" title="國立虎尾科技大學 - 機械設計工程系 - cd2025 Exam1 - 41223131" width="560"></iframe></p><br />Exam << <a href='Exam.html'>Previous</a> <a href='Exam2.html'>Next</a> >> Exam2</div>
         
     <!-- footer -->
       <div class="container">
