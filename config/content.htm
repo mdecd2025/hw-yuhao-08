@@ -479,7 +479,42 @@ if __name__ == "__main__":
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/TvuXzDF6okI" title="國立虎尾科技大學 - 機械設計工程系 - cd2025 Exam1 - 41223131" width="560"></iframe></p><h2>Exam2</h2>
 <p>Exam2 (10%): 利用 CAD 零組件建立模擬場景</p>
 <p>操作影片標題: 國立虎尾科技大學 - 機械設計工程系 - cd2025 Exam2 - 學員學號</p>
-<p>檔案下載:<a href="/downloads/41223131_Quiz2.7z">/downloads/41223131_Quiz2.7z</a></p>
+<p>檔案下載:<a href="/downloads/41223131_Exam2">/downloads/41223131_Exam2</a></p>
+<p>操作方法如下:</p>
+<p>1.我是利用HW2作業下去修改</p>
+<p>2.長度的部分使用131mm、140mm、160mm;兩基座距離為180</p>
+<p>(畢竟已經有限制配合，所以直接修改草圖即可)，角度有使用31度(我學號)</p>
+<p><img alt="" height="315" src="/images/Quiz3-1.png" width="415"/></p>
+<p>3.安裝numpy模組如下(使用小黑窗)</p>
+<p><img alt="" height="315" src="/images/Quiz3-2.png" width="613"/></p>
+<p>4.使用程式啟動轉obj檔案</p>
+<p><img alt="" height="315" src="/images/Quiz3-3.png" width="592"/></p>
+<p>5.在小黑窗開啟webotsw找到檔案開啟，找到錨點位置(X、Y、Z)</p>
+<p> <span style="background-color: #ffff00;">******solvespaces上的點位是mm，webot上的點位是m，因此需要單位換算******</span></p>
+<p>第一個錨點:(0、0、0)</p>
+<p>第二個錨點:(1.1229、0.6747、0)</p>
+<p>第三個錨點:(2.2205、1.5438、0)</p>
+<p>第四個錨點:(1.8、0、0)</p>
+<p>6.啟動程式如下</p>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">from controller import Robot
+
+def run_robot():
+
+    robot = Robot()
+
+    timestep = int(robot.getBasicTimeStep())
+
+    motor1 = robot.getDevice('motor')
+
+    motor1.setPosition(float('inf'))
+    motor1.setVelocity(1.0)
+
+    while robot.step(timestep) != -1:
+        pass
+
+if __name__ == "__main__":
+    run_robot()</pre>
+<p></p>
 <p>影片操作如下:</p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/Rv9CKYias6M" title="國立虎尾科技大學 - 機械設計工程系 - cd2025 Exam2 - 41223131" width="560"></iframe></p><h2>Exam3</h2>
 <p>Exam3 (20%): Webots 機電模擬場景的協同設計</p>
