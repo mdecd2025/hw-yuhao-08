@@ -394,9 +394,14 @@ def run_robot():
 if __name__ == "__main__":
     run_robot()
 </pre>
-<p></p>
-<p></p>
-<h2>HW2</h2>
+<p>回答簡單問題:</p>
+<p><span style="text-decoration: underline;">1.在製作 HW1 之前是否實際練習 Tutorial1 與 Tutorial2?</span></p>
+<p>有先練習過<span>Tutorial1。</span></p>
+<p><span style="text-decoration: underline;">2.Webots 是什麼？它主要用途為何？</span></p>
+<p>它可模擬機器人的機構、感測器、物理碰撞。</p>
+<p><span style="text-decoration: underline;">3.如何在 Webots 中建立並執行一個新的模擬 world？</span></p>
+<p>先開啟file----New-----New project Directory-----next按到底</p>
+<p></p><h2>HW2</h2>
 <p>HW2 (5%): <span style="background-color: #ffff00;">建立由 CAD 繪製零件組成的平面四連桿機構 Webots 模擬場景</span></p>
 <p>操作影片標題: 國立虎尾科技大學 - 機械設計工程系 - cd2025 HW2 - 學員學號</p>
 <p>下載檔案如下:<a href="/downloads/41223131.HW2.7z">/downloads/41223131.HW2.7z</a></p>
@@ -524,7 +529,17 @@ if __name__ == "__main__":
 </div>
 </div>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/TvuXzDF6okI" title="國立虎尾科技大學 - 機械設計工程系 - cd2025 Exam1 - 41223131" width="560"></iframe></p>
-<h2>Exam2</h2>
+<p>回答部分問題:</p>
+<p><strong>1. Robot 節點代表什麼角色?</strong></p>
+<p><code data-end="7" data-is-only-node="" data-start="0">Robot</code> 節點代表模擬中的智慧機器人，內部可包含馬達、感測器、關節等裝置。</p>
+<p><strong>2.base Solid 節點的功能為何？</strong></p>
+<p><code data-end="7" data-is-only-node="" data-start="0">Solid</code> 定義具物理性質的實體物件，包括質量、形狀、碰撞盒等。<code data-end="40" data-start="34">base</code> 通常是機器人或結構的核心支撐。</p>
+<p><strong>3.Shape 與 Appearance 如何設定外觀？</strong></p>
+<p><code data-end="7" data-is-only-node="" data-start="0">Shape</code> 定義物體外觀的幾何形狀，<code data-end="12" data-is-only-node="" data-start="0">Appearance</code>則設定材質和光學</p>
+<p><strong>4.otationalMotor 裝置如何與 HingeJoint 結合？</strong></p>
+<p><span class="relative -mx-px my-[-0.2rem] rounded px-px py-[0.2rem] transition-colors duration-100 ease-in-out"><code data-end="17" data-is-only-node="" data-start="0">RotationalMotor</code> 放在 <code data-end="33" data-start="21">HingeJoint</code> 的 <code data-end="44" data-start="36">device</code> 裏，它驅動關節旋轉，使連接的實體可以動起來</span> 。</p>
+<p><strong>5.Solid 和 boundingObject 的關係？</strong></p>
+<p><code data-end="1232" data-start="1216">boundingObject</code>通常引用一個 <code data-end="1246" data-start="1239">Shape</code> 或幾何，作為碰撞盒或物理邊界。這允許物件進行碰撞偵測與物理互動。</p><h2>Exam2</h2>
 <p>Exam2 (10%): 利用 CAD 零組件建立模擬場景</p>
 <p>操作影片標題: 國立虎尾科技大學 - 機械設計工程系 - cd2025 Exam2 - 學員學號</p>
 <p>檔案下載:<a href="/downloads/41223131_Exam2">/downloads/41223131_Exam2</a></p>
@@ -601,7 +616,7 @@ if __name__ == "__main__":
 <p>請將期末協同專案執行過程、內容與心得, 製作成影片，配合字幕上傳至 Youtube 後嵌入各階段的期末報告頁面中.</p>
 <p>影片標題: <span style="background-color: #ffff00;">國立虎尾科技大學 - 機械設計工程系 - cd2025 期末報告 - 學員學號 - 各階段影片主題<br/></span></p>
 <p>期末報告:<a href="/downloads/2a-ag4-Shootcar-project.pdf">/downloads/2a-ag4-Shootcar-project.pdf</a></p>
-<p>第一次修改:場景檔案:<a href="/downloads/w17-final-project-new.7z">/downloads/w17-final-project-new.7z</a></p>
+<p><span style="background-color: #99cc00;">第一次修改</span>:場景檔案:<a href="/downloads/w17-final-project-new.7z">/downloads/w17-final-project-new.7z</a></p>
 <p>可利用S、W、A、D來控制籃框位置</p>
 <p>擷取其中一段:</p>
 <p><span style="background-color: #ffff00;">籃框移動如下:</span></p>
