@@ -300,7 +300,12 @@ print("\n".join(ungrouped_accounts))
 <p>零件組合如下:</p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/RpTotkMVaj0" title="零件組合" width="560"></iframe></p>
 <h2>w14</h2>
-<h2>w16</h2>
+<p>端午節放假</p>
+<h2>w15</h2>
+<p>抽查第一次</p>
+<p>1.開啟自己的ipv6可攜</p>
+<p>2.開啟HW1確認是否有完成</p>
+<p>3.確認是否可以使用webotsw --stream進行串流</p><h2>w16</h2>
 <p>1.<span>利用HW1下去進行修改長度(<span style="color: #000000; background-color: #ffff00;">第一根桿件改一半</span>)</span></p>
 <p><span>檔案下載如下:<a href="/downloads/41223131_HW1 - w16.zip">/downloads/41223131_HW1 - w16.zip</a></span></p>
 <p><span>操作如下:</span></p>
@@ -319,7 +324,8 @@ print("\n".join(ungrouped_accounts))
 <p>圖片如下</p>
 <p><img alt="" height="315" src="/images/螢幕擷取畫面 2025-06-12 174218.png" width="588"/></p>
 <p></p>
-<p></p><h1>Homework</h1>
+<p></p>
+<h1>Homework</h1>
 <p>作業 (30%)</p>
 <p>HW1 (5%): <span style="background-color: #ffff00;">建立由 Box 組成的平面四連桿機構 Webots 模擬場景</span></p>
 <p style="padding-left: 30px;">part1:</p>
@@ -572,7 +578,8 @@ if __name__ == "__main__":
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/_1sQcygQDsg" title="我是客戶端-3-2" width="560"></iframe></p>
 <p></p>
 <p>3.學員學號<span>請各組利用 <a href="https://mde.tw/cd2025/downloads/youbot_cart_w10_websocket.7z">youbot_cart_w10_websocket.7z</a> 中的 Youbot 底座平台, 由各組組長以 webotsw --stream 啟動後, 可在其餘組員的電腦中, 透過 Websocket 客戶端程式控制平台車的前進、後退與左右轉. 完成後請各學員將操作與設定說明過程拍成影片, 上傳至 Youtube, 影片標題: "國立虎尾科技大學 - 機械設計工程系 - cd2025 Exam3-3 - 學員學號"</span></p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/kIf91J4f-9U" title="國立虎尾科技大學 - 機械設計工程系 - cd2025 Exam3-3 -41223131" width="560"></iframe></p><h1>Final</h1>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/kIf91J4f-9U" title="國立虎尾科技大學 - 機械設計工程系 - cd2025 Exam3-3 -41223131" width="560"></iframe></p>
+<h1>Final</h1>
 <p><span>期末協同專案執行過程影片、簡報與 PDf 報告檔案 (六人一組) (30%)</span></p>
 <p><span>題目: <span style="background-color: #ccffcc;">Webots 動態投籃模擬系統的協同設計</span></span></p>
 <p><span>說明: </span></p>
@@ -584,6 +591,7 @@ if __name__ == "__main__":
 <p>第一次修改:場景檔案:<a href="/downloads/w17-final-project-new.7z">/downloads/w17-final-project-new.7z</a></p>
 <p>可利用S、W、A、D來控制籃框位置</p>
 <p>擷取其中一段:</p>
+<p><span style="background-color: #ffff00;">籃框移動如下:</span></p>
 <pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false"># === 一般鍵盤控制 ===
     if key == ord('W') or key == ord('w'):
         set_wheel_velocity(MAX_VELOCITY, MAX_VELOCITY, MAX_VELOCITY, MAX_VELOCITY)
@@ -594,7 +602,57 @@ if __name__ == "__main__":
     elif key == ord('A') or key == ord('a'):
         set_wheel_velocity(MAX_VELOCITY, -MAX_VELOCITY, MAX_VELOCITY, -MAX_VELOCITY)
     elif key == ord('F') or key == ord('f'):</pre>
-<p></p><h1>Brython</h1>
+<p></p>
+<p><span style="background-color: #ffff00;">投球機移動以及投球機發射動作:</span></p>
+<p><span style="background-color: #ffffff;">投球機移動定點導航:</span></p>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">        elif (key == ord('U') or key == ord('u')) and auto_nav_enabled:
+            print("執行 U：前往 (6.23, 6.05)，朝向籃框")
+            move_to_point_and_face_to((6.57369, 6.23308), (6.23, -0.18))
+        elif (key == ord('I') or key == ord('i')) and auto_nav_enabled:
+            print("執行 I：前往 (12.46, -0.18)，朝向籃框")
+            move_to_point_and_face_to((12.70853, -0.18), (6.23, -0.18))
+        elif (key == ord('O') or key == ord('o')) and auto_nav_enabled:
+            print("執行 O：前往 (6.23, -6.41)，朝向籃框")
+            move_to_point_and_face_to((6.43317, -6.55883), (6.23, -0.18))
+        elif (key == ord('P') or key == ord('p')) and auto_nav_enabled:
+            print("執行 P：前往 (0, 0)，朝向籃框")
+            move_to_point_and_face_to((0.0, 0.0), (6.23, -0.18))
+        elif key == ord('Q') or key == ord('q'):
+            print("Exiting...")
+            break
+        else:
+            for wheel in wheels:
+                wheel.setVelocity(0)</pre>
+<p>發射器開始投球:</p>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">f mechanism_enabled:
+        _current_motor_position = sensor.getValue()
+        # M key: only take action if allowed and not held
+        if key == ord('M') or key == ord('m'):
+            if not key_pressed['m'] and current_state == "allow_m":
+                motor.setPosition(POSITION_M)
+                current_state = "allow_k"
+            key_pressed['m'] = True
+        else:
+            key_pressed['m'] = False
+
+        # K key: only take action if allowed and not held
+        if key == ord('K') or key == ord('k'):
+            if not key_pressed['k'] and current_state == "allow_k":
+                motor.setPosition(POSITION_K)
+                current_state = "allow_m"
+            key_pressed['k'] = True
+        else:
+            key_pressed['k'] = False
+
+        # R key: 進入 allow_m 狀態
+        if key == ord('R') or key == ord('r'):
+            if not key_pressed['r']:
+                current_state = "allow_m"
+            key_pressed['r'] = True
+        else:
+            key_pressed['r'] = False</pre>
+<p></p>
+<h1>Brython</h1>
 <p><button id="add1to100">1 add to 100</button></p>
 <!-- 導入 brython 程式庫 -->
 <p>
